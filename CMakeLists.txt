@@ -13,7 +13,7 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 aux_source_directory( ${CMAKE_CURRENT_SOURCE_DIR}/src SRC )
-#aux_source_directory( ${CMAKE_CURRENT_SOURCE_DIR}/src/third_party SRC )
+aux_source_directory( ${CMAKE_CURRENT_SOURCE_DIR}/src/Dialog SRC )
 #aux_source_directory( ${CMAKE_CURRENT_SOURCE_DIR}/src/third_party/nodeeditor/include SRC )
 
 

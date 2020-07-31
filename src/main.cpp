@@ -8,6 +8,7 @@
 
 #include "TextSourceDataModel.hpp"
 //#include "TextDisplayDataModel.hpp"
+#include "Dialog/DialogDataModel.hpp"
 
 using QtNodes::DataModelRegistry;
 using QtNodes::FlowView;
@@ -21,6 +22,8 @@ registerDataModels()
     ret->registerModel<TextSourceDataModel>();
 
 //    ret->registerModel<TextDisplayDataModel>();
+
+    ret->registerModel<DialogDataModel>();
 
     return ret;
 }
