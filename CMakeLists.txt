@@ -36,7 +36,7 @@ find_package(Qt5 5.3 COMPONENTS
 include(FetchContent)
 FetchContent_Declare(nodes
         GIT_REPOSITORY git://github.com/paceholder/nodeeditor.git
-        GIT_TAG 2.1.3)
+        )
 
 FetchContent_GetProperties(nodes)
 if(NOT nodes_POPULATED)
@@ -52,7 +52,6 @@ set(CMAKE_AUTOMOC ON)
 
 add_executable(${APP_NAME} ${SRC})
 
-#target_link_libraries(${APP_NAME} nodes)
 target_link_libraries( ${APP_NAME}
         ${LIBS} )
 

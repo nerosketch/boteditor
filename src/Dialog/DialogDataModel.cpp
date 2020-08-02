@@ -6,8 +6,10 @@
 #include <QtWidgets/QPushButton>
 #include "DialogDataModel.hpp"
 #include "DialogOptionsWindow.hpp"
+#include "DialogVariantsWindow.hpp"
 
-DialogDataModel::DialogDataModel() : _qwidget(new QWidget)
+
+DialogDataModel::DialogDataModel() : _qwidget(new QWidget), _one_dialog_control(0)
 {
 //    connect(_vboxLay, &QVBoxLayout::textEdited,
 //            this, &TextSourceDataModel::onTextEdited);
@@ -21,6 +23,7 @@ DialogDataModel::DialogDataModel() : _qwidget(new QWidget)
 
     auto *_logicBtn = new QPushButton("Поведение");
     auto *_varsBtn = new QPushButton("Варианты");
+    connect(_varsBtn, &QPushButton::clicked, this, &DialogDataModel::onVarsClicked);
 
 //    lay->addWidget(_layItem);
     lay->addWidget(_optsBtn);
@@ -69,8 +72,12 @@ QWidget* DialogDataModel::embeddedWidget() {
 }
 
 
-void DialogDataModel::onOptsClicked(bool checked)
+void DialogDataModel::onOptsClicked()
 {
+    if (_one_dialog_control > 0) {
+        return;
+    }
+    _one_dialog_control ++;
     DialogOptionsWindow dlg(_qwidget);
 //    connect( &dlg, SIGNAL( applied() ), SLOT( onApplied() ) );
     switch( dlg.exec() ) {
@@ -83,4 +90,26 @@ void DialogDataModel::onOptsClicked(bool checked)
         default:
             std::cout << "Unexpected" << std::endl;
     }
+    _one_dialog_control --;
+}
+
+void DialogDataModel::onVarsClicked()
+{
+    if (_one_dialog_control > 0) {
+        return;
+    }
+    _one_dialog_control ++;
+    DialogVariantsWindow dlg(_qwidget);
+//    connect( &dlg, SIGNAL( applied() ), SLOT( onApplied() ) );
+    switch( dlg.exec() ) {
+        case QDialog::Accepted:
+            std::cout << "Accepted" << std::endl;
+            break;
+        case QDialog::Rejected:
+            std::cout << "Rejected" << std::endl;
+            break;
+        default:
+            std::cout << "Unexpected" << std::endl;
+    }
+    _one_dialog_control --;
 }

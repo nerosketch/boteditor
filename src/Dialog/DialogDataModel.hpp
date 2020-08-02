@@ -51,11 +51,12 @@ public:
 
 private Q_SLOTS:
 
-    void onOptsClicked(bool checked = false);
+    void onOptsClicked();
+    void onVarsClicked();
 
 private:
     QWidget *_qwidget;
-
+    int _one_dialog_control;
 };
 
 
