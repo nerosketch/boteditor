@@ -35,7 +35,8 @@ find_package(Qt5 5.3 COMPONENTS
 # Target paceholder/nodeeditor
 include(FetchContent)
 FetchContent_Declare(nodes
-        GIT_REPOSITORY git://github.com/paceholder/nodeeditor.git
+        GIT_REPOSITORY git://github.com/nerosketch/nodeeditor.git
+        GIT_TAG        origin/allow_dc
         )
 
 FetchContent_GetProperties(nodes)

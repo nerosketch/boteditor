@@ -9,7 +9,12 @@
 #include "DialogVariantsWindow.hpp"
 
 
-DialogDataModel::DialogDataModel() : _qwidget(new QWidget), _one_dialog_control(0)
+DialogDataModel::DialogDataModel() :
+NodeDataModel(),
+_qwidget(new QWidget),
+_one_dialog_control(0),
+_outVars(),
+vcount(0)
 {
 //    connect(_vboxLay, &QVBoxLayout::textEdited,
 //            this, &TextSourceDataModel::onTextEdited);
@@ -38,21 +43,36 @@ DialogDataModel::~DialogDataModel() = default;
 
 unsigned int DialogDataModel::nPorts(PortType portType) const
 {
-    unsigned int result = 1;
-
     switch (portType) {
         case PortType::In:
-            result = 0;
+            return 1;
             break;
 
-//        case PortType::Out:
-//            result = 1;
+        case PortType::Out:
+            return vcount;
+            break;
 
         default:
             break;
     }
 
-    return result;
+    return 0;
+}
+
+QString DialogDataModel::portCaption(PortType port_type, PortIndex port_index) const
+{
+    switch (port_type) {
+        case PortType::In:
+            return QStringLiteral("Вход");
+            break;
+        case PortType::Out:
+            return _outVars.value(port_index);
+            break;
+        default:
+            break;
+    }
+
+    return QStringLiteral("Не понятно");
 }
 
 
@@ -116,5 +136,7 @@ void DialogDataModel::onVarsClicked()
 
 void DialogDataModel::onDialogOkSignal(QStringList& vars)
 {
-    std::cout << "DialogDataModel::onDialogOkSignal" << std::endl;
+    _outVars = vars;
+    vcount = _outVars.size();
+    emit portCountChanged();
 }

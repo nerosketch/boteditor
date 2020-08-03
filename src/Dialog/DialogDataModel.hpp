@@ -36,8 +36,13 @@ public:
     name() const override
     { return DialogDataModel::Name(); }
 
+    bool portCaptionVisible(PortType, PortIndex) const override
+    { return true; }
+
     // port type is Out
     unsigned int nPorts(PortType portType) const override;
+
+    QString portCaption(PortType port_type, PortIndex port_index) const override;
 
     NodeDataType dataType(PortType portType, PortIndex portIndex) const override;
 
@@ -58,6 +63,8 @@ private Q_SLOTS:
 private:
     QWidget *_qwidget;
     int _one_dialog_control;
+    QStringList _outVars;
+    unsigned int vcount;
 };
 
 
