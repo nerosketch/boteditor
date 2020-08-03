@@ -100,7 +100,7 @@ void DialogDataModel::onVarsClicked()
     }
     _one_dialog_control ++;
     DialogVariantsWindow dlg(_qwidget);
-//    connect( &dlg, SIGNAL( applied() ), SLOT( onApplied() ) );
+    connect( &dlg, &DialogVariantsWindow::onOkSignal, this, &DialogDataModel::onDialogOkSignal );
     switch( dlg.exec() ) {
         case QDialog::Accepted:
             std::cout << "Accepted" << std::endl;
@@ -112,4 +112,9 @@ void DialogDataModel::onVarsClicked()
             std::cout << "Unexpected" << std::endl;
     }
     _one_dialog_control --;
+}
+
+void DialogDataModel::onDialogOkSignal(QStringList& vars)
+{
+    std::cout << "DialogDataModel::onDialogOkSignal" << std::endl;
 }

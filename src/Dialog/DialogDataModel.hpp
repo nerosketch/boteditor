@@ -53,6 +53,7 @@ private Q_SLOTS:
 
     void onOptsClicked();
     void onVarsClicked();
+    void onDialogOkSignal(QStringList& vars);
 
 private:
     QWidget *_qwidget;

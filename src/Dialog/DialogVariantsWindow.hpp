@@ -20,15 +20,20 @@ public:
 
     void addVariant(const QString& title);
 
+Q_SIGNALS:
+    void onOkSignal(QStringList& vars);
+
 private Q_SLOTS:
     void onAddVarClick();
     void onDelVarClick();
     void onListSelectChanged();
+    void _onOkSignalClicked();
 
 private:
     QVBoxLayout *_lay;
     QListWidget *_list;
     QPushButton *_delBtn;
+    QPushButton *_okBtn;
 };
 
 

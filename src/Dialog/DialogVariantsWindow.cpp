@@ -4,10 +4,15 @@
 
 //#include <iostream>
 #include <QInputDialog>
+#include <QtWidgets/QHBoxLayout>
 #include "DialogVariantsWindow.hpp"
 
 
-DialogVariantsWindow::DialogVariantsWindow(QWidget *parent) : QDialog(parent), _lay(new QVBoxLayout(this)), _list(new QListWidget), _delBtn(new QPushButton("Удалить"))
+DialogVariantsWindow::DialogVariantsWindow(QWidget *parent) : QDialog(parent),
+_lay(new QVBoxLayout(this)),
+_list(new QListWidget),
+_delBtn(new QPushButton(tr("Удалить"))),
+_okBtn(new QPushButton(tr("Ok")))
 {
     auto *_optsBtn = new QPushButton("Добавить вариант");
     _optsBtn->setBackgroundRole(QPalette::ColorRole::Link);
@@ -18,11 +23,20 @@ DialogVariantsWindow::DialogVariantsWindow(QWidget *parent) : QDialog(parent), _
 
     connect(_list, &QListWidget::itemSelectionChanged, this, &DialogVariantsWindow::onListSelectChanged);
 
+    connect(_okBtn, &QPushButton::clicked, this, &DialogVariantsWindow::_onOkSignalClicked);
+
 //    auto *_litem1 = new QListWidgetItem(tr("Oak"), _list);
 
     _lay->addWidget(_optsBtn);
     _lay->addWidget(_list);
-    _lay->addWidget(_delBtn);
+
+    auto _qhlay_widget = new QWidget;
+    auto _hlay = new QHBoxLayout;
+    _hlay->addWidget(_okBtn);
+    _hlay->addWidget(_delBtn);
+    _qhlay_widget->setLayout(_hlay);
+
+    _lay->addWidget(_qhlay_widget);
 
     setLayout(_lay);
 }
@@ -59,4 +73,15 @@ void DialogVariantsWindow::onListSelectChanged()
 {
     auto selected = _list->selectedItems();
     _delBtn->setEnabled(!selected.empty());
+}
+
+void DialogVariantsWindow::_onOkSignalClicked()
+{
+    QStringList vars;
+    for (int i=0; i < _list->count(); i++)
+    {
+        vars.append(_list->item(i)->text());
+    }
+    emit onOkSignal(vars);
+    accept();
 }
