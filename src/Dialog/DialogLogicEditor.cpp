@@ -5,6 +5,8 @@
 #include <memory>
 #include <QtWidgets/QVBoxLayout>
 #include <nodes/DataModelRegistry>
+#include "DialogLogicInput.h"
+#include "DialogLogicOutput.h"
 #include "DialogLogicEditor.h"
 
 using QtNodes::DataModelRegistry;
@@ -14,11 +16,9 @@ registerDataModels()
 {
     auto ret = std::make_shared<DataModelRegistry>();
 
-//    ret->registerModel<TextSourceDataModel>();
+    ret->registerModel<DialogLogicInput>();
 
-//    ret->registerModel<TextDisplayDataModel>();
-
-//    ret->registerModel<DialogDataModel>();
+    ret->registerModel<DialogLogicOutput>();
 
     return ret;
 }

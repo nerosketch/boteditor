@@ -16,9 +16,7 @@ save() const
 }
 
 
-unsigned int
-ModuloModel::
-nPorts(PortType portType) const
+unsigned int ModuloModel::nPorts(PortType portType) const
 {
   unsigned int result = 1;
 
@@ -39,25 +37,19 @@ nPorts(PortType portType) const
 }
 
 
-NodeDataType
-ModuloModel::
-dataType(PortType, PortIndex) const
+NodeDataType ModuloModel::dataType(PortType, PortIndex) const
 {
   return IntegerData().type();
 }
 
 
-std::shared_ptr<NodeData>
-ModuloModel::
-outData(PortIndex)
+std::shared_ptr<NodeData> ModuloModel::outData(PortIndex)
 {
   return _result;
 }
 
 
-void
-ModuloModel::
-setInData(std::shared_ptr<NodeData> data, PortIndex portIndex)
+void ModuloModel::setInData(std::shared_ptr<NodeData> data, PortIndex portIndex)
 {
   auto numberData =
     std::dynamic_pointer_cast<IntegerData>(data);
@@ -102,17 +94,13 @@ setInData(std::shared_ptr<NodeData> data, PortIndex portIndex)
 }
 
 
-NodeValidationState
-ModuloModel::
-validationState() const
+NodeValidationState ModuloModel::validationState() const
 {
   return modelValidationState;
 }
 
 
-QString
-ModuloModel::
-validationMessage() const
+QString ModuloModel::validationMessage() const
 {
   return modelValidationError;
 }

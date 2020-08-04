@@ -2,8 +2,8 @@
 // Created by ns on 8/4/20.
 //
 
-#ifndef BOTEDITOR_DIALOGLOGICFIELD_H
-#define BOTEDITOR_DIALOGLOGICFIELD_H
+#ifndef BOTEDITOR_DIALOGLOGICFIELD_H_UNUSED
+#define BOTEDITOR_DIALOGLOGICFIELD_H_UNUSED
 
 #include <QtCore/QObject>
 #include <nodes/NodeDataModel>
@@ -30,9 +30,11 @@ public:
 
     QString
     name() const override
-    { return TextSourceDataModel::Name(); }
+    { return DialogLogicField::Name(); }
+
+    QWidget *embeddedWidget() override { return nullptr; }
 
 };
 
 
-#endif //BOTEDITOR_DIALOGLOGICFIELD_H
+#endif //BOTEDITOR_DIALOGLOGICFIELD_H_UNUSED
