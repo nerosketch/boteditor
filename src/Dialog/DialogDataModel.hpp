@@ -8,6 +8,7 @@
 #include <memory>
 #include <QtCore/QObject>
 #include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QLabel>
 
 #include <nodes/NodeDataModel>
 
@@ -56,7 +57,7 @@ public:
 
 private Q_SLOTS:
 
-    void onOptsClicked();
+    void onCaptionClicked();
     void onVarsClicked();
     void onDialogOkSignal(QStringList& vars);
 
@@ -65,6 +66,7 @@ private:
     int _one_dialog_control;
     QStringList _outVars;
     unsigned int vcount;
+    QLabel *_label;
 };
 
 

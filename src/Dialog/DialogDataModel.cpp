@@ -5,7 +5,7 @@
 #include <iostream>
 #include <QtWidgets/QPushButton>
 #include "DialogDataModel.hpp"
-#include "DialogOptionsWindow.hpp"
+#include <QInputDialog>
 #include "DialogVariantsWindow.hpp"
 
 
@@ -14,7 +14,8 @@ NodeDataModel(),
 _qwidget(new QWidget),
 _one_dialog_control(0),
 _outVars(),
-vcount(0)
+vcount(0),
+_label(new QLabel(tr("Название")))
 {
 //    connect(_vboxLay, &QVBoxLayout::textEdited,
 //            this, &TextSourceDataModel::onTextEdited);
@@ -22,16 +23,15 @@ vcount(0)
 
 
     auto *lay = new QVBoxLayout;
-//    auto *_layItem = new QLabel("kduhfskdf");
-    auto *_optsBtn = new QPushButton("Настройки");
-    connect(_optsBtn, &QPushButton::clicked, this, &DialogDataModel::onOptsClicked);
+    auto *_captionBtn = new QPushButton("Название");
+    connect(_captionBtn, &QPushButton::clicked, this, &DialogDataModel::onCaptionClicked);
 
     auto *_logicBtn = new QPushButton("Поведение");
     auto *_varsBtn = new QPushButton("Варианты");
     connect(_varsBtn, &QPushButton::clicked, this, &DialogDataModel::onVarsClicked);
 
-//    lay->addWidget(_layItem);
-    lay->addWidget(_optsBtn);
+    lay->addWidget(_label);
+    lay->addWidget(_captionBtn);
     lay->addWidget(_logicBtn);
     lay->addWidget(_varsBtn);
 
@@ -92,23 +92,19 @@ QWidget* DialogDataModel::embeddedWidget() {
 }
 
 
-void DialogDataModel::onOptsClicked()
+void DialogDataModel::onCaptionClicked()
 {
     if (_one_dialog_control > 0) {
         return;
     }
     _one_dialog_control ++;
-    DialogOptionsWindow dlg(_qwidget);
-//    connect( &dlg, SIGNAL( applied() ), SLOT( onApplied() ) );
-    switch( dlg.exec() ) {
-        case QDialog::Accepted:
-            std::cout << "Accepted" << std::endl;
-            break;
-        case QDialog::Rejected:
-            std::cout << "Rejected" << std::endl;
-            break;
-        default:
-            std::cout << "Unexpected" << std::endl;
+
+    bool ok;
+    QString newCaption = QInputDialog::getText(_qwidget, tr("Изменить название"), tr("Название диалога"), QLineEdit::Normal, _label->text(), &ok);
+
+    if (ok && !newCaption.isEmpty())
+    {
+        _label->setText(newCaption);
     }
     _one_dialog_control --;
 }
