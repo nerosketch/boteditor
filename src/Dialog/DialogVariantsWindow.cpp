@@ -5,7 +5,7 @@
 //#include <iostream>
 #include <QInputDialog>
 #include <QtWidgets/QHBoxLayout>
-#include "DialogVariantsWindow.hpp"
+#include "DialogVariantsWindow.h"
 
 
 DialogVariantsWindow::DialogVariantsWindow(QWidget *parent) : QDialog(parent),

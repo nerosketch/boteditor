@@ -2,7 +2,7 @@
 // Created by ns on 7/30/20.
 //
 
-#include "TextSourceDataModel.hpp"
+#include "TextSourceDataModel.h"
 
 
 TextSourceDataModel::TextSourceDataModel()

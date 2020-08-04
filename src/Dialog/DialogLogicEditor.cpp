@@ -5,7 +5,7 @@
 #include <memory>
 #include <QtWidgets/QVBoxLayout>
 #include <nodes/DataModelRegistry>
-#include "DialogLogicEditor.hpp"
+#include "DialogLogicEditor.h"
 
 using QtNodes::DataModelRegistry;
 

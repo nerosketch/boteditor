@@ -6,9 +6,9 @@
 
 #include <nodes/DataModelRegistry>
 
-#include "TextSourceDataModel.hpp"
+#include "TextSourceDataModel.h"
 //#include "TextDisplayDataModel.hpp"
-#include "Dialog/DialogDataModel.hpp"
+#include "Dialog/DialogDataModel.h"
 
 using QtNodes::DataModelRegistry;
 using QtNodes::FlowView;

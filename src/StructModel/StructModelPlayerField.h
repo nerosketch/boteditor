@@ -1,0 +1,14 @@
+//
+// Created by ns on 8/4/20.
+//
+
+#ifndef BOTEDITOR_STRUCTMODELPLAYERFIELD_H
+#define BOTEDITOR_STRUCTMODELPLAYERFIELD_H
+
+
+class StructModelPlayerField {
+
+};
+
+
+#endif //BOTEDITOR_STRUCTMODELPLAYERFIELD_H

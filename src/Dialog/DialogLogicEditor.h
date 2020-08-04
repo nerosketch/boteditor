@@ -2,8 +2,8 @@
 // Created by ns on 8/4/20.
 //
 
-#ifndef BOTEDITOR_DIALOGLOGICEDITOR_HPP
-#define BOTEDITOR_DIALOGLOGICEDITOR_HPP
+#ifndef BOTEDITOR_DIALOGLOGICEDITOR_H
+#define BOTEDITOR_DIALOGLOGICEDITOR_H
 
 #include <QtCore/QObject>
 #include <QDialog>
@@ -16,7 +16,7 @@ using QtNodes::FlowScene;
 class DialogLogicEditor : public QDialog {
 Q_OBJECT
 public:
-    DialogLogicEditor(QWidget *parent);
+    DialogLogicEditor(QWidget *parent = nullptr);
     virtual ~DialogLogicEditor();
 
 public Q_SLOTS:
@@ -28,4 +28,4 @@ private:
 };
 
 
-#endif //BOTEDITOR_DIALOGLOGICEDITOR_HPP
+#endif //BOTEDITOR_DIALOGLOGICEDITOR_H

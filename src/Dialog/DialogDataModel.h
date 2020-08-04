@@ -2,8 +2,8 @@
 // Created by ns on 7/31/20.
 //
 
-#ifndef BOTEDITOR_DIALOGDATAMODEL_HPP
-#define BOTEDITOR_DIALOGDATAMODEL_HPP
+#ifndef BOTEDITOR_DIALOGDATAMODEL_H
+#define BOTEDITOR_DIALOGDATAMODEL_H
 
 #include <memory>
 #include <QtCore/QObject>
@@ -71,4 +71,4 @@ private:
 };
 
 
-#endif //BOTEDITOR_DIALOGDATAMODEL_HPP
+#endif //BOTEDITOR_DIALOGDATAMODEL_H

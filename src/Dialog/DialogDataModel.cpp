@@ -4,10 +4,10 @@
 
 #include <iostream>
 #include <QtWidgets/QPushButton>
-#include "DialogDataModel.hpp"
+#include "DialogDataModel.h"
 #include <QInputDialog>
-#include "DialogVariantsWindow.hpp"
-#include "DialogLogicEditor.hpp"
+#include "DialogVariantsWindow.h"
+#include "DialogLogicEditor.h"
 
 
 DialogDataModel::DialogDataModel() :

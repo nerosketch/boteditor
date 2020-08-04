@@ -8,7 +8,7 @@
 #include <QtCore/QObject>
 #include <QtWidgets/QLineEdit>
 
-#include "TextData.hpp"
+#include "TextData.h"
 
 #include <nodes/NodeDataModel>
 
