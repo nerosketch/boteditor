@@ -7,6 +7,7 @@
 #include "DialogDataModel.hpp"
 #include <QInputDialog>
 #include "DialogVariantsWindow.hpp"
+#include "DialogLogicEditor.hpp"
 
 
 DialogDataModel::DialogDataModel() :
@@ -27,6 +28,8 @@ _label(new QLabel(tr("Название")))
     connect(_captionBtn, &QPushButton::clicked, this, &DialogDataModel::onCaptionClicked);
 
     auto *_logicBtn = new QPushButton("Поведение");
+    connect(_logicBtn, &QPushButton::clicked, this, &DialogDataModel::onLogicClicked);
+
     auto *_varsBtn = new QPushButton("Варианты");
     connect(_varsBtn, &QPushButton::clicked, this, &DialogDataModel::onVarsClicked);
 
@@ -135,4 +138,10 @@ void DialogDataModel::onDialogOkSignal(QStringList& vars)
     _outVars = vars;
     vcount = _outVars.size();
     emit portCountChanged();
+}
+
+void DialogDataModel::onLogicClicked()
+{
+    DialogLogicEditor dle(_qwidget);
+    dle.open();
 }

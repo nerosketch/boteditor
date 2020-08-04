@@ -1,4 +1,4 @@
-#include <nodes/NodeData>
+//#include <nodes/NodeData>
 #include <nodes/FlowScene>
 #include <nodes/FlowView>
 
@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 
     FlowView view(&scene);
 
-    view.setWindowTitle("Node-based flow editor");
+    view.setWindowTitle("Редактор для бота");
     view.resize(800, 600);
     view.show();
 

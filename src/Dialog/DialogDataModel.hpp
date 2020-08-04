@@ -59,6 +59,7 @@ private Q_SLOTS:
 
     void onCaptionClicked();
     void onVarsClicked();
+    void onLogicClicked();
     void onDialogOkSignal(QStringList& vars);
 
 private:
