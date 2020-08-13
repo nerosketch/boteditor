@@ -11,6 +11,8 @@
 //#include "TextDisplayDataModel.hpp"
 #include "Dialog/DialogDataModel.h"
 
+#include "windows/BotMainWindow.h"
+
 using QtNodes::DataModelRegistry;
 using QtNodes::FlowView;
 using QtNodes::FlowScene;
@@ -34,29 +36,27 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    QWidget mainWidget;
+    Ui::MainWindow mw;
+    auto *l = mw.horizontalLayout;
 
-    auto menuBar    = new QMenuBar();
+    /*auto menuBar    = new QMenuBar();
     auto saveAction = menuBar->addAction("Save..");
     auto loadAction = menuBar->addAction("Load..");
-    auto *l = new QVBoxLayout(&mainWidget);
-    l->addWidget(menuBar);
+    auto *l = new QVBoxLayout(mainWidget);
+    l->addWidget(menuBar);*/
 
-    auto* scene = new FlowScene(registerDataModels(), &mainWidget);
+    auto* scene = new FlowScene(registerDataModels(), &mw);
 
-    l->addWidget(new FlowView(scene));
+    auto *fv = new FlowView(scene);
+    QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    sizePolicy1.setHorizontalStretch(0);
+    sizePolicy1.setVerticalStretch(0);
+    sizePolicy1.setHeightForWidth(fv->sizePolicy().hasHeightForWidth());
+    fv->setSizePolicy(sizePolicy1);
+    l->addWidget(fv);
     l->setContentsMargins(0, 0, 0, 0);
     l->setSpacing(0);
 
-    QObject::connect(saveAction, &QAction::triggered,
-            scene, &FlowScene::save);
-
-    QObject::connect(loadAction, &QAction::triggered,
-            scene, &FlowScene::load);
-    
-    mainWidget.setWindowTitle("Редактор для бота");
-    mainWidget.resize(800, 600);
-    mainWidget.showNormal();
-
+    mw.show();
     return app.exec();
 }

@@ -16,6 +16,7 @@ aux_source_directory( ${CMAKE_CURRENT_SOURCE_DIR}/src SRC )
 aux_source_directory( ${CMAKE_CURRENT_SOURCE_DIR}/src/Dialog SRC )
 aux_source_directory( ${CMAKE_CURRENT_SOURCE_DIR}/src/OperationDataModel SRC )
 aux_source_directory( ${CMAKE_CURRENT_SOURCE_DIR}/src/StructModel SRC )
+aux_source_directory( ${CMAKE_CURRENT_SOURCE_DIR}/src/windows SRC )
 
 
 #set( SRC ${SRC}
