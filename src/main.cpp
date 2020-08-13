@@ -3,6 +3,7 @@
 #include <nodes/FlowView>
 
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QMenuBar>
 
 #include <nodes/DataModelRegistry>
 
@@ -33,13 +34,29 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    FlowScene scene(registerDataModels());
+    QWidget mainWidget;
 
-    FlowView view(&scene);
+    auto menuBar    = new QMenuBar();
+    auto saveAction = menuBar->addAction("Save..");
+    auto loadAction = menuBar->addAction("Load..");
+    auto *l = new QVBoxLayout(&mainWidget);
+    l->addWidget(menuBar);
 
-    view.setWindowTitle("Редактор для бота");
-    view.resize(800, 600);
-    view.show();
+    auto* scene = new FlowScene(registerDataModels(), &mainWidget);
+
+    l->addWidget(new FlowView(scene));
+    l->setContentsMargins(0, 0, 0, 0);
+    l->setSpacing(0);
+
+    QObject::connect(saveAction, &QAction::triggered,
+            scene, &FlowScene::save);
+
+    QObject::connect(loadAction, &QAction::triggered,
+            scene, &FlowScene::load);
+    
+    mainWidget.setWindowTitle("Редактор для бота");
+    mainWidget.resize(800, 600);
+    mainWidget.showNormal();
 
     return app.exec();
 }
