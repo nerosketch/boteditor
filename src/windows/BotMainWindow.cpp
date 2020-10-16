@@ -78,13 +78,13 @@ void Ui_MainWindow::setupUi(QMainWindow *MainWindow)
 void Ui_MainWindow::retranslateUi(QMainWindow *MainWindow)
 {
     MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
-    action->setText(QApplication::translate("MainWindow", "\320\264\320\276\320\261\320\260\320\262\320\270\321\202\321\214", Q_NULLPTR));
-    action_3->setText(QApplication::translate("MainWindow", "\321\201\320\261\321\200\320\276\321\201\320\270\321\202\321\214", Q_NULLPTR));
-    action_4->setText(QApplication::translate("MainWindow", "\320\264\320\276\320\261\320\260\320\262\320\270\321\202\321\214", Q_NULLPTR));
-    action_5->setText(QApplication::translate("MainWindow", "\320\267\320\260\320\263\321\200\321\203\320\267\320\270\321\202\321\214", Q_NULLPTR));
-    action_6->setText(QApplication::translate("MainWindow", "\321\201\320\276\321\205\321\200\320\260\320\275\320\270\321\202\321\214", Q_NULLPTR));
-    action_7->setText(QApplication::translate("MainWindow", "\320\262\321\213\320\271\321\202\320\270", Q_NULLPTR));
-    action_8->setText(QApplication::translate("MainWindow", "\321\203\320\264\320\260\320\273\320\270\321\202\321\214", Q_NULLPTR));
+    action->setText(QApplication::translate("MainWindow", "Add", Q_NULLPTR));
+    action_3->setText(QApplication::translate("MainWindow", "Reset", Q_NULLPTR));
+    action_4->setText(QApplication::translate("MainWindow", "Add", Q_NULLPTR));
+    action_5->setText(QApplication::translate("MainWindow", "Load", Q_NULLPTR));
+    action_6->setText(QApplication::translate("MainWindow", "Save", Q_NULLPTR));
+    action_7->setText(QApplication::translate("MainWindow", "Exit", Q_NULLPTR));
+    action_8->setText(QApplication::translate("MainWindow", "Delete", Q_NULLPTR));
     QTreeWidgetItem *___qtreewidgetitem = treeWidget->headerItem();
     ___qtreewidgetitem->setText(0, QApplication::translate("MainWindow", "1", Q_NULLPTR));
 
@@ -102,8 +102,8 @@ void Ui_MainWindow::retranslateUi(QMainWindow *MainWindow)
     ___qtreewidgetitem5->setText(0, QApplication::translate("MainWindow", "New Item", Q_NULLPTR));
     treeWidget->setSortingEnabled(__sortingEnabled);
 
-    menu->setTitle(QApplication::translate("MainWindow", "\321\204\320\260\320\271\320\273", Q_NULLPTR));
-    menu_2->setTitle(QApplication::translate("MainWindow", "\321\202\320\270\320\277\321\213", Q_NULLPTR));
+    menu->setTitle(QApplication::translate("MainWindow", "File", Q_NULLPTR));
+    menu_2->setTitle(QApplication::translate("MainWindow", "Types", Q_NULLPTR));
 } // retranslateUi
 
 

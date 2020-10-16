@@ -6,6 +6,8 @@
 #include <QtWidgets/QMenuBar>
 
 #include <nodes/DataModelRegistry>
+#include <QtCore/QTranslator>
+#include<QDebug>
 
 #include "TextSourceDataModel.h"
 //#include "TextDisplayDataModel.hpp"
@@ -35,6 +37,11 @@ registerDataModels()
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
+    QTranslator myTranslator;
+    qInfo() << "boteditor_" << QLocale::system().name();
+//    myTranslator.load("boteditor_" + QLocale::system().name(), "translates");
+    myTranslator.load("boteditor_ru.qm", "translates");
+    QApplication::installTranslator(&myTranslator);
 
     Ui::MainWindow mw;
     auto *l = mw.horizontalLayout;

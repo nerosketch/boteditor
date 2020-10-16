@@ -1,3 +1,4 @@
+*.qm
 .idea/
 build/
 cmake-build-debug/
