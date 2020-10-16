@@ -21,6 +21,7 @@
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTreeWidget>
 #include <QtWidgets/QWidget>
+#include <QtWidgets/QVBoxLayout>
 
 QT_BEGIN_NAMESPACE
 
@@ -35,7 +36,7 @@ public:
     QAction *action_7;
     QAction *action_8;
     QWidget *centralwidget;
-    QWidget *horizontalLayoutWidget;
+    QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QTreeWidget *treeWidget;
 //    QWidget *widget;

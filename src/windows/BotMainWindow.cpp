@@ -27,20 +27,13 @@ void Ui_MainWindow::setupUi(QMainWindow *MainWindow)
     action_8->setObjectName(QStringLiteral("action_8"));
     centralwidget = new QWidget(MainWindow);
     centralwidget->setObjectName(QStringLiteral("centralwidget"));
-    horizontalLayoutWidget = new QWidget(centralwidget);
-    horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
-    horizontalLayoutWidget->setGeometry(QRect(9, 9, 881, 601));
+    verticalLayout = new QVBoxLayout(centralwidget);
+    verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+    horizontalLayout = new QHBoxLayout();
 
-//    QSizePolicy sizePolicy4HorizontalLayout(QSizePolicy::Expanding, QSizePolicy::Expanding);
-//    sizePolicy4HorizontalLayout.setHorizontalStretch(0);
-//    sizePolicy4HorizontalLayout.setVerticalStretch(0);
-//    sizePolicy4HorizontalLayout.setHeightForWidth(centralwidget->sizePolicy().hasHeightForWidth());
-//    horizontalLayoutWidget->setSizePolicy(sizePolicy4HorizontalLayout);
-
-    horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
     horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-    horizontalLayout->setContentsMargins(0, 0, 0, 0);
-    treeWidget = new QTreeWidget(horizontalLayoutWidget);
+    verticalLayout->addLayout(horizontalLayout);
+    treeWidget = new QTreeWidget(verticalLayout->widget());
     QTreeWidgetItem *__qtreewidgetitem = new QTreeWidgetItem(treeWidget);
     QTreeWidgetItem *__qtreewidgetitem1 = new QTreeWidgetItem(__qtreewidgetitem);
     new QTreeWidgetItem(__qtreewidgetitem1);
@@ -54,16 +47,6 @@ void Ui_MainWindow::setupUi(QMainWindow *MainWindow)
     treeWidget->setSizePolicy(sizePolicy);
 
     horizontalLayout->addWidget(treeWidget);
-
-//    widget = new QWidget(horizontalLayoutWidget);
-//    widget->setObjectName(QStringLiteral("widget"));
-//    QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
-//    sizePolicy1.setHorizontalStretch(0);
-//    sizePolicy1.setVerticalStretch(0);
-//    sizePolicy1.setHeightForWidth(widget->sizePolicy().hasHeightForWidth());
-//    widget->setSizePolicy(sizePolicy1);
-
-//    horizontalLayout->addWidget(widget);
 
     MainWindow->setCentralWidget(centralwidget);
     menubar = new QMenuBar(MainWindow);
